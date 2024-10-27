@@ -11,7 +11,7 @@ return {
       keymaps = {
         ['h'] = actions.parent,
         ['l'] = actions.select,
-        ['-']= actions.delete,
+        ['-']= false,
       },
       actions={
         delete={ confirm=false},
@@ -19,7 +19,7 @@ return {
       },
     }) 
 
-    vim.keymap.set("n", "<leader>e", require('oil').toggle_float, {})
+    vim.keymap.set("n", "-", require('oil').toggle_float, {})
   end,
 }
 

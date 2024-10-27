@@ -5,8 +5,16 @@ return {
 		"nvim-lua/plenary.nvim",
 		"nvim-tree/nvim-web-devicons",
 		"MunifTanjim/nui.nvim",
-	},
-	config = function()
-		vim.keymap.set("n", "-", ":Neotree toggle right<CR>", {noremap=true,silent=true})
-	end,
+  },
+  config = function()
+    require('neo-tree').setup({
+      window={
+        mappings={
+          ['l']='open',
+          ['h']='close_node',
+        },
+      },
+    })
+  end,
+  vim.keymap.set("n", "<leader>e", ":Neotree toggle right<CR>", {noremap=true,silent=true})
 }

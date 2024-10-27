@@ -11,6 +11,7 @@ return {
       local actions = require('telescope.actions')
       require('telescope').setup({
         defaults = {
+          file_ignore_patterns = {'%.git', '.git', '.venv' },
           layout_config = {
             preview_width = 0.65,
             horizontal = {
@@ -31,7 +32,6 @@ return {
           },
           pickers = {
             find_files = {
-              file_ignore_patterns = { '.git', '.venv' },
               hidden = true,
             },
             buffers = {

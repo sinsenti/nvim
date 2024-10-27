@@ -1,5 +1,6 @@
 local opts = { noremap = true, silent = true }
 
+
 -- keymap.set('n', '<C-h>', '<Cmd>NvimTmuxNavigateLeft<CR>', { silent = true })
 -- keymap.set('n', '<C-j>', '<Cmd>NvimTmuxNavigateDown<CR>', { silent = true })
 -- keymap.set('n', '<C-k>', '<Cmd>NvimTmuxNavigateUp<CR>', { silent = true })
@@ -36,6 +37,7 @@ vim.keymap.set('n', 'wt', ':w<CR>:split<CR>:terminal<CR>i', opts)
 vim.keymap.set('n', 'te', ':tabedit<CR>', opts)
 vim.keymap.set('n', '<tab>', ':tabnext<Return>', opts)
 vim.keymap.set('n', '<s-tab>', ':tabprev<Return>', opts)
+
 
 
 --keymap.del({ 'n', 'i', 'v' }, '<A-j>')

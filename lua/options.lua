@@ -1,3 +1,6 @@
+
+
+
 vim.opt.statusline='%y'
 vim.opt.fillchars:append{eob=' '}
 vim.o.autoread=false
@@ -5,8 +8,6 @@ vim.notify=function() end
 change_detection={
   notify=false,
 }
-
-
 
 --line numbers
 vim.wo.number = true
@@ -19,7 +20,6 @@ vim.o.splitright = true
 --wrap
 vim.o.wrap = true
 vim.o.linebreak = true
-  
 
 --idk why that need
 vim.wo.signcolumn = "yes"
@@ -33,13 +33,10 @@ vim.o.cursorline=true
 vim.o.smartindent=true
 vim.o.autoindent=true
     
-
-
 vim.g.mapleader = " "
 vim.g.maplocalleader= " "
 
 vim.opt.clipboard= 'unnamedplus'
-
 
 vim.o.ignorecase=true
 vim.o.smartcase=true
@@ -55,4 +52,3 @@ vim.o.showtabline=1
 
 vim.o.conceallevel=0
 vim.o.cmdheight=1
-
