@@ -1,4 +1,3 @@
-
 return {
   {
     'nvim-telescope/telescope-ui-select.nvim',
@@ -11,7 +10,7 @@ return {
       local actions = require('telescope.actions')
       require('telescope').setup({
         defaults = {
-          file_ignore_patterns = {'%.git', '.git', '.venv' },
+          file_ignore_patterns = { '%.git', '%.mypy_cache', '.git', '.venv' },
           layout_config = {
             preview_width = 0.65,
             horizontal = {
@@ -62,4 +61,3 @@ return {
     end,
   },
 }
-

@@ -1,4 +1,3 @@
-
 return {
   "stevearc/oil.nvim",
   config = function()
@@ -11,15 +10,14 @@ return {
       keymaps = {
         ['h'] = actions.parent,
         ['l'] = actions.select,
-        ['-']= false,
+        ['-'] = false,
       },
-      actions={
-        delete={ confirm=false},
-        create={confirm=false},
+      actions = {
+        delete = { confirm = false },
+        create = { confirm = false },
       },
-    }) 
+    })
 
     vim.keymap.set("n", "-", require('oil').toggle_float, {})
   end,
 }
-

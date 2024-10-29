@@ -1,20 +1,20 @@
 return {
-	"nvim-neo-tree/neo-tree.nvim",
-	branch = "v3.x",
-	dependencies = {
-		"nvim-lua/plenary.nvim",
-		"nvim-tree/nvim-web-devicons",
-		"MunifTanjim/nui.nvim",
+  "nvim-neo-tree/neo-tree.nvim",
+  branch = "v3.x",
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    "nvim-tree/nvim-web-devicons",
+    "MunifTanjim/nui.nvim",
   },
   config = function()
     require('neo-tree').setup({
-      window={
-        mappings={
-          ['l']='open',
-          ['h']='close_node',
+      window = {
+        mappings = {
+          ['l'] = 'open',
+          ['h'] = 'close_node',
         },
       },
     })
   end,
-  vim.keymap.set("n", "<leader>e", ":Neotree toggle right<CR>", {noremap=true,silent=true})
+  vim.keymap.set("n", "<leader>e", ":Neotree toggle left<CR>", { noremap = true, silent = true })
 }

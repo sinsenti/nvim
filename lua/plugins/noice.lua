@@ -3,6 +3,13 @@ return {
     "rcarriga/nvim-notify",
     config = function()
       require("notify").setup({
+        -- keys={
+        --   "<leader>:",
+        --   function()
+        -- require('notify').dismiss({silent=true, pendint=true})
+        --   end,
+        --   desc='Dismiss All Notifications',
+        -- },
         background_colour = "#000000",
         enabled = false,
       })
@@ -13,10 +20,6 @@ return {
     "folke/noice.nvim",
     config = function()
       require("noice").setup({
-       -- messages={
-        --   enabled=false,
-        -- }
-        -- add any options here
         routes = {
           {
             filter = {

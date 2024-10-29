@@ -16,17 +16,17 @@ vim.keymap.set('n', '<c-l>', ':wincmd l<CR>', opts)
 vim.keymap.set('n', '<Up>', ':resize -2<CR>', opts)
 vim.keymap.set('n', '<Down>', ':resize +2<CR>', opts)
 vim.keymap.set('n', '<Left>', ':vertical resize -2<CR>', opts)
-vim.keymap.set('n', '<Right>', ':vertical resize +2<CR>', opts)--clear highlights
+vim.keymap.set('n', '<Right>', ':vertical resize +2<CR>', opts) --clear highlights
 
 vim.keymap.set('n', '<Esc>', ':noh<CR>', opts)
 
 --my keymap
 vim.keymap.set('i', 'jk', '<Esc>', opts)
-vim.api.nvim_set_keymap('n','<leader>q', ':q<CR>',opts)
-vim.api.nvim_set_keymap('n','<leader>w', ':w<CR>',opts)
+vim.api.nvim_set_keymap('n', '<leader>q', ':q<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>w', ':w<CR>', opts)
 vim.api.nvim_set_keymap('n', 'TT', ':TransparentToggle<CR>', opts)
-vim.api.nvim_set_keymap('n', 'E', '$', {noremap=false})
-vim.api.nvim_set_keymap('n', 'B', '^', {noremap=false})
+vim.api.nvim_set_keymap('n', 'E', '$', { noremap = false })
+vim.api.nvim_set_keymap('n', 'B', '^', { noremap = false })
 
 -- Split windows
 vim.keymap.set('n', 'ss', ':vsplit<Return>', opts)
