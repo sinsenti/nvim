@@ -51,3 +51,4 @@ vim.o.showtabline = 1
 
 vim.o.conceallevel = 2
 vim.o.cmdheight = 1
+-- vim.cmd.colorscheme "catppuccin"

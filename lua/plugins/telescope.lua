@@ -18,7 +18,7 @@ return {
         defaults = {
           file_ignore_patterns = { '%.git', '%.mypy_cache', '.git', '.venv' },
           layout_config = {
-            preview_width = 0.65,
+            -- preview_width = 0.65,
             horizontal = {
               size = {
                 width = '95%',
