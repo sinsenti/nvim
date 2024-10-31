@@ -1,3 +1,9 @@
+vim.o.hlsearch=true
+vim.o.updatetime=250
+-- vim.cmd.colorscheme 'catppuccin'
+vim.o.completeopt='menuone,noselect'
+
+
 vim.opt.statusline = '%y'
 vim.opt.fillchars:append { eob = ' ' }
 vim.o.autoread = false
@@ -43,5 +49,5 @@ vim.o.scrolloff = 10;
 vim.o.showmode = false
 vim.o.showtabline = 1
 
-vim.o.conceallevel = 0
+vim.o.conceallevel = 2
 vim.o.cmdheight = 1

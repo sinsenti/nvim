@@ -1,6 +1,15 @@
 local opts = { noremap = true, silent = true }
 
-
+vim.api.nvim_set_keymap("n", "tw", ":Twilight<enter>", {noremap=false})
+-- buffers
+vim.api.nvim_set_keymap("n", "tk", ":blast<enter>", {noremap=false})
+vim.api.nvim_set_keymap("n", "tj", ":bfirst<enter>", {noremap=false})
+vim.api.nvim_set_keymap("n", "th", ":bprev<enter>", {noremap=false})
+vim.api.nvim_set_keymap("n", "tl", ":bnext<enter>", {noremap=false})
+vim.api.nvim_set_keymap("n", "td", ":bdelete<enter>", {noremap=false})
+vim.keymap.set("n", "<leader>ee", "<cmd>GoIfErr<cr>",
+  {silent = true, noremap = true}
+)
 -- keymap.set('n', '<C-h>', '<Cmd>NvimTmuxNavigateLeft<CR>', { silent = true })
 -- keymap.set('n', '<C-j>', '<Cmd>NvimTmuxNavigateDown<CR>', { silent = true })
 -- keymap.set('n', '<C-k>', '<Cmd>NvimTmuxNavigateUp<CR>', { silent = true })
@@ -22,8 +31,8 @@ vim.keymap.set('n', '<Esc>', ':noh<CR>', opts)
 
 --my keymap
 vim.keymap.set('i', 'jk', '<Esc>', opts)
-vim.api.nvim_set_keymap('n', '<leader>q', ':q<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>w', ':w<CR>', opts)
+vim.api.nvim_set_keymap('n', 'QQ', ':q<CR>', opts)
+vim.api.nvim_set_keymap('n', 'WW', ':w<CR>', opts)
 vim.api.nvim_set_keymap('n', 'TT', ':TransparentToggle<CR>', opts)
 vim.api.nvim_set_keymap('n', 'E', '$', { noremap = false })
 vim.api.nvim_set_keymap('n', 'B', '^', { noremap = false })

@@ -1,5 +1,11 @@
 return {
   {
+    'nvim-telescope/telescope-fzf-native.nvim',
+  },
+  {
+      'nvim-telescope/telescope-symbols.nvim',
+  },
+  {
     'nvim-telescope/telescope-ui-select.nvim',
   },
   {
@@ -50,12 +56,28 @@ return {
         },
       })
 
+
+      pcall(require('telescope').load_extension, 'fzf')
       local builtin = require('telescope.builtin')
       local keymap = vim.keymap.set
-      keymap('n', '<leader>ff', builtin.find_files, {})
-      keymap('n', '<leader>fg', builtin.live_grep, {})
+
+      vim.keymap.set('n', '<leader>/', function()
+        -- You can pass additional configuration to telescope to change theme, layout, etc.
+        require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+          winblend = 10,
+          preview = true,
+        })
+      end, { desc = '[/] Fuzzily search in current buffer]' })      keymap('n', '<leader>ff', builtin.find_files, {})
       keymap('n', '<leader>fb', builtin.buffers, {})
       keymap('n', '<leader><leader>', builtin.oldfiles, {})
+      vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
+      vim.keymap.set('n', '<leader>fS', require('telescope.builtin').git_status, { desc = '' })
+      vim.keymap.set("n", "<Leader>fr", "<CMD>lua require('telescope').extensions.git_worktree.git_worktrees()<CR>", silent)
+      vim.keymap.set("n", "<Leader>fR", "<CMD>lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>", silent)
+      vim.keymap.set("n", "<Leader>fn", "<CMD>lua require('telescope').extensions.notify.notify()<CR>", silent)
+      vim.api.nvim_set_keymap("n", "ft", ":TodoTelescope<CR>", {noremap=true})
+      vim.api.nvim_set_keymap("n", "<Leader><tab>", "<Cmd>lua require('telescope.builtin').commands()<CR>", {noremap=false})
+
 
       require('telescope').load_extension('ui-select')
     end,
