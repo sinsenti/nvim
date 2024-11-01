@@ -1,3 +1,6 @@
+vim.opt.showtabline = 0
+
+
 vim.o.hlsearch=true
 vim.o.updatetime=250
 -- vim.cmd.colorscheme 'catppuccin'
@@ -47,7 +50,6 @@ vim.o.writebackup = true
 vim.o.scrolloff = 10;
 
 vim.o.showmode = false
-vim.o.showtabline = 1
 
 vim.o.conceallevel = 2
 vim.o.cmdheight = 1

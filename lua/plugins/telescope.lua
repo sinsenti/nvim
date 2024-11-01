@@ -33,6 +33,7 @@ return {
             },
             n = {
               ['q'] = actions.close,
+              ['d'] = actions.delete_buffer,
             },
           },
           pickers = {
