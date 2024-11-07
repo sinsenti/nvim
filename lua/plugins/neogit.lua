@@ -5,16 +5,15 @@ return {
     "nvim-lua/plenary.nvim",         -- required
     "sindrets/diffview.nvim",        -- optional - Diff integration
     "nvim-telescope/telescope.nvim", -- optional
-  },
-  config = true,
-
-  config=function ()
+    config=true,
+   },
+ config=function ()
     -- This contains mainly Neogit but also a bunch of Git settings
     -- like fetching branches with telescope or blaming with fugitive
     local neogit = require('neogit')
 
     vim.keymap.set("n", "<leader>gs", neogit.open,
-      {silent = true, noremap = true}
+      {silent = true, noremap = true, desc='Open neogit'}
     )
 
     vim.keymap.set("n", "<leader>gc", ":Neogit commit<CR>",
@@ -37,4 +36,5 @@ return {
       {silent = true, noremap = true}
     )
   end
+
 }

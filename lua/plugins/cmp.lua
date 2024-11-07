@@ -9,8 +9,8 @@ return {
     },
     config = function()
       -- nvim-cmp setup
-      local cmp = require 'cmp'
-      local luasnip = require 'luasnip'
+      local cmp = require('cmp')
+      local luasnip = require ('luasnip')
 
       cmp.setup({
         view = {
@@ -53,7 +53,7 @@ return {
           { name = 'luasnip' },
           { name = "neorg" },
         },
-      })
+        })
     end
   },
 }

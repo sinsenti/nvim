@@ -9,7 +9,7 @@ return {
       'williamboman/mason-lspconfig.nvim',
       'j-hui/fidget.nvim',
     },
-    config=function()
+    config = function()
       vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
       vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
       vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
@@ -19,6 +19,7 @@ return {
         -- NOTE: Remember that lua is a real programming language, and as such it is possible
         -- to define small helper and utility functions so you don't have to repeat yourself
         -- many times.
+        -- TODO change config
         --
         -- In this case, we create a function that lets us more easily define mappings specific
         -- for LSP related items. It sets the mode, buffer and description for us each time.
@@ -119,4 +120,3 @@ return {
 
   },
 }
-

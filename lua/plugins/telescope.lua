@@ -16,7 +16,12 @@ return {
       local actions = require('telescope.actions')
       require('telescope').setup({
         defaults = {
-          file_ignore_patterns = { '%.git', '%.mypy_cache', '.git', '.venv' },
+          file_ignore_patterns = {
+            '%.git',
+            '%.mypy_cache',
+            '.venv',
+            '.visualprojects'
+          },
           layout_config = {
             -- preview_width = 0.65,
             horizontal = {
@@ -69,13 +74,13 @@ return {
           preview = true,
         })
       end, { desc = '[/] Fuzzily search in current buffer]' })      keymap('n', '<leader>ff', builtin.find_files, {})
-      keymap('n', '<leader>fb', builtin.buffers, {})
-      keymap('n', '<leader><leader>', builtin.oldfiles, {})
+      keymap('n', '<leader>fb', builtin.buffers, {desc='Find Buffers'})
+      keymap('n', '<leader><leader>', builtin.oldfiles, {desc='Find Old files '})
       vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
-      vim.keymap.set('n', '<leader>fS', require('telescope.builtin').git_status, { desc = '' })
-      vim.keymap.set("n", "<Leader>fr", "<CMD>lua require('telescope').extensions.git_worktree.git_worktrees()<CR>", silent)
-      vim.keymap.set("n", "<Leader>fR", "<CMD>lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>", silent)
-      vim.keymap.set("n", "<Leader>fn", "<CMD>lua require('telescope').extensions.notify.notify()<CR>", silent)
+      vim.keymap.set('n', '<leader>fS', require('telescope.builtin').git_status, { desc = 'Git status' })
+      vim.keymap.set("n", "<Leader>fr", "<CMD>lua require('telescope').extensions.git_worktree.git_worktrees()<CR>", {noremap=true})
+      vim.keymap.set("n", "<Leader>fR", "<CMD>lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>", {noremap=true})
+      vim.keymap.set("n", "<Leader>fn", "<CMD>lua require('telescope').extensions.notify.notify()<CR>", {noremap=true})
       vim.api.nvim_set_keymap("n", "ft", ":TodoTelescope<CR>", {noremap=true})
       vim.api.nvim_set_keymap("n", "<Leader><tab>", "<Cmd>lua require('telescope.builtin').commands()<CR>", {noremap=false})
 
