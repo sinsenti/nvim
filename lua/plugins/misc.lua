@@ -20,7 +20,4 @@ return {
       require("todo-comments").setup {}
     end,
   },
-
-  -- Enable Comment.nvim
-
 }

@@ -4,6 +4,8 @@ return {
     local actions = require('oil.actions')
 
     require('oil').setup({
+      delete_to_trash=true,
+      skip_confirm_for_simple_edits=true,
       preview = {
         always_show = true
       },
@@ -12,10 +14,10 @@ return {
         ['l'] = actions.select,
         ['-'] = false,
       },
-      actions = {
-        delete = { confirm = false },
-        create = { confirm = false },
-      },
+      -- actions = {
+      --   delete = { confirm = false },
+      --   create = { confirm = false },
+      -- },
     })
 
     vim.keymap.set("n", "-", require('oil').toggle_float, {})

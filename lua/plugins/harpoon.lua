@@ -1,4 +1,4 @@
-return { 
+return {
     {
         "ThePrimeagen/harpoon",
         branch = "harpoon2",
@@ -29,7 +29,7 @@ return {
                 }):find()
             end
 
-            vim.keymap.set("n", "<leader>sh", function() toggle_telescope(harpoon:list()) end,
+            vim.keymap.set("n", "<leader>hh", function() toggle_telescope(harpoon:list()) end,
                 { desc = "Open harpoon window" })
 
         end

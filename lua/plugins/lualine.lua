@@ -3,7 +3,6 @@ return {
   config = function()
     require('lualine').setup({
   options = {
-    -- theme='dracula',
     icons_enabled = true,
         component_separators = '|',
         section_separators = '',
@@ -21,18 +20,10 @@ return {
             color = { fg = "#ff9e64" },
           },
         },
-        -- lualine_a = {
-        --   {
-        --     lualine_a = {'buffers'}, -- Shows open buffers in the tabline
-        --     lualine_b = {'tabs'}, 
-        --     -- 'tab'
-        --     -- 'buffers',
-        --   }
-        -- }
       },
       tabline = {
-        lualine_a = {'buffers'}, -- Shows open buffers in the tabline
-        lualine_b = {'tabs'}, 
+        lualine_a = {'buffers'},
+        lualine_b = {'tabs'},
       }
     })
   end
