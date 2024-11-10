@@ -7,7 +7,7 @@ return {
 
   },
   {
-    'numToStr/Comment.nvim', -- "gc" to comment visual regions/lines 
+    'numToStr/Comment.nvim',
     event = { "BufRead", "BufNewFile" },
     config=function()
   require('Comment').setup()

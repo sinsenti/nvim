@@ -50,8 +50,17 @@ return {
           end
         end, { desc = 'Format current buffer with LSP' })
       end
+      vim.keymap.set('n', '<leader>cf', ':Format<CR>', { noremap = true, silent = true, desc = "formatting" })
 
-      require('mason').setup()
+
+      require('mason').setup({
+        ensure_installed={
+          'lua-language-server',
+          'stylua',
+          'pyright',
+          'clangd',
+        }
+      })
 
       local servers = { 'clangd', 'pyright', }
 

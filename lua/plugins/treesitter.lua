@@ -21,7 +21,6 @@ return {
           'yaml',
           'json',
           'toml',
-
         },
 
 

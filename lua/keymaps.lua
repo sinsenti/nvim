@@ -1,7 +1,5 @@
 local opts = { noremap = true, silent = true }
 
---
---terminal
 vim.api.nvim_create_autocmd("TermOpen", {
     pattern = "*",
     command = "startinsert",
@@ -53,6 +51,9 @@ end, opts)
 
 
 
+vim.keymap.set('n','<leader>mk',':mksession!<CR>', {noremap=true, silent=true, desc="Create Session"})
+vim.keymap.set('n','<leader>mt',':source Session.vim<CR>',{noremap=true, silent=true, desc="Open Session"})
+
 vim.api.nvim_set_keymap("n", "tw", ":Twilight<enter>", opts)
 vim.api.nvim_set_keymap("n", "tj", ":bfirst<CR>", opts)
 vim.api.nvim_set_keymap("n", "th", ":bprev<CR>", opts)
@@ -72,14 +73,14 @@ vim.keymap.set('n', '<Down>', ':resize +2<CR>', opts)
 vim.keymap.set('n', '<Left>', ':vertical resize -2<CR>', opts)
 vim.keymap.set('n', '<Right>', ':vertical resize +2<CR>', opts)
 
-vim.keymap.set('n', '<Esc>', ':noh<CR>', opts)
+vim.keymap.set('n', '<Esc>', ':noh<CR>:NoiceDismiss<CR>', opts)
 
 vim.keymap.set('i', 'jk', '<Esc>', opts)
 vim.api.nvim_set_keymap('n', 'QQ', ':q<CR>', opts)
 vim.api.nvim_set_keymap('n', 'WW', ':w<CR>', opts)
 vim.api.nvim_set_keymap('n', 'TT', ':TransparentToggle<CR>', opts)
-vim.api.nvim_set_keymap('n', 'E', '$', { noremap = false })
-vim.api.nvim_set_keymap('n', 'B', '^', { noremap = false })
+vim.api.nvim_set_keymap('n', 'E', '$', opts)
+vim.api.nvim_set_keymap('n', 'B', '^', opts)
 
 -- Split windows
 vim.keymap.set('n', 'ss', ':vsplit<Return>', opts)
@@ -91,7 +92,3 @@ vim.keymap.set('n', '<tab>', ':tabnext<Return>', opts)
 vim.keymap.set('n', '<s-tab>', ':tabprev<Return>', opts)
 
 
--- vim.keymap.set('n', '<C-h>', '<Cmd>NvimTmuxNavigateLeft<CR>', { silent = true })
--- vim.keymap.set('n', '<C-j>', '<Cmd>NvimTmuxNavigateDown<CR>', { silent = true })
--- vim.keymap.set('n', '<C-k>', '<Cmd>NvimTmuxNavigateUp<CR>', { silent = true })
--- vim.keymap.set('n', '<C-l>', '<Cmd>NvimTmuxNavigateRight<CR>', { silent = true })

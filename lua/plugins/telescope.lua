@@ -1,17 +1,22 @@
 return {
-  {
-    'nvim-telescope/telescope-fzf-native.nvim',
-  },
-  {
-      'nvim-telescope/telescope-symbols.nvim',
-  },
-  {
-    'nvim-telescope/telescope-ui-select.nvim',
-  },
+  -- {
+  --   'nvim-telescope/telescope-fzf-native.nvim',
+  -- },
+  -- {
+  --     'nvim-telescope/telescope-symbols.nvim',
+  -- },
+  -- {
+  --   'nvim-telescope/telescope-ui-select.nvim',
+  -- },
   {
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
-    dependencies = { 'nvim-lua/plenary.nvim' },
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope-fzf-native.nvim',
+      'nvim-telescope/telescope-symbols.nvim',
+      'nvim-telescope/telescope-ui-select.nvim',
+    },
     config = function()
       local actions = require('telescope.actions')
       require('telescope').setup({
@@ -72,18 +77,32 @@ return {
         require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
           winblend = 10,
           preview = true,
+          layout_config={
+            width=0.5,
+            height=0.5,
+          }
         })
-      end, { desc = '[/] Fuzzily search in current buffer]' })      keymap('n', '<leader>ff', builtin.find_files, {})
-      keymap('n', '<leader>fb', builtin.buffers, {desc='Find Buffers'})
-      keymap('n', '<leader><leader>', builtin.oldfiles, {desc='Find Old files '})
-      vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
-      vim.keymap.set('n', '<leader>fS', require('telescope.builtin').git_status, { desc = 'Git status' })
-      vim.keymap.set("n", "<Leader>fr", "<CMD>lua require('telescope').extensions.git_worktree.git_worktrees()<CR>", {noremap=true})
-      vim.keymap.set("n", "<Leader>fR", "<CMD>lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>", {noremap=true})
-      vim.keymap.set("n", "<Leader>fn", "<CMD>lua require('telescope').extensions.notify.notify()<CR>", {noremap=true})
-      vim.api.nvim_set_keymap("n", "ft", ":TodoTelescope<CR>", {noremap=true})
-      vim.api.nvim_set_keymap("n", "<Leader><tab>", "<Cmd>lua require('telescope.builtin').commands()<CR>", {noremap=false})
+      end, { desc = '[/] Fuzzily search in current buffer]' })
 
+      keymap('n', '<leader>ff', builtin.find_files, {})
+
+      keymap('n', '<leader>fb', builtin.buffers, { desc = 'Find Buffers' })
+
+      keymap('n', '<leader><leader>', builtin.oldfiles, { desc = 'Find Old files ' })
+
+      vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
+
+      vim.keymap.set('n', '<leader>fS', require('telescope.builtin').git_status, { desc = 'Git status' })
+
+      vim.keymap.set("n", "<Leader>fr", "<CMD>lua require('telescope').extensions.git_worktree.git_worktrees()<CR>", { noremap = true })
+
+      vim.keymap.set("n", "<Leader>fR", "<CMD>lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>", { noremap = true })
+
+      vim.keymap.set("n", "<Leader>fn", "<CMD>lua require('telescope').extensions.notify.notify()<CR>", { noremap = true })
+
+      vim.api.nvim_set_keymap("n", "ft", ":TodoTelescope<CR>", { noremap = true })
+
+      vim.api.nvim_set_keymap("n", "<Leader><tab>", "<Cmd>lua require('telescope.builtin').commands()<CR>", { noremap = false })
 
       require('telescope').load_extension('ui-select')
     end,
