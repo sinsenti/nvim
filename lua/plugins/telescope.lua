@@ -1,13 +1,4 @@
 return {
-  -- {
-  --   'nvim-telescope/telescope-fzf-native.nvim',
-  -- },
-  -- {
-  --     'nvim-telescope/telescope-symbols.nvim',
-  -- },
-  -- {
-  --   'nvim-telescope/telescope-ui-select.nvim',
-  -- },
   {
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
@@ -24,8 +15,9 @@ return {
           file_ignore_patterns = {
             '%.git',
             '%.mypy_cache',
-            '.venv',
-            '.visualprojects'
+            -- '%.venv',
+            'venv',
+            '%.visualprojects'
           },
           layout_config = {
             -- preview_width = 0.65,

@@ -13,13 +13,13 @@ function _G.open_split_terminal()
     -- vim.wo[win].wrap = false  -- Disable line wrapping
     vim.wo[win].number = false
     vim.wo[win].relativenumber = false
-    vim.wo[win].cursorline = false  -- Disable cursorline
-    vim.wo[win].cursorcolumn = false  -- Disable cursorcolumn
+    -- vim.wo[win].cursorline = false   -- Disable cursorline
+    vim.wo[win].cursorcolumn = false -- Disable cursorcolumn
     local command = "ollama run llama3.2"
     vim.cmd('terminal')
-    vim.api.nvim_put({command}, 'l', true, true)
-
+    vim.api.nvim_put({ command }, 'l', true, true)
 end
+
 vim.keymap.set('n', '<leader>wt', ':lua _G.open_split_terminal()<CR>', opts)
 
 function _G.open_floating_terminal()
@@ -35,7 +35,8 @@ function _G.open_floating_terminal()
     })
     vim.cmd("terminal")
 end
-vim.keymap.set('n','wt',':lua _G.open_floating_terminal()<CR>', opts)
+
+vim.keymap.set('n', 'wt', ':lua _G.open_floating_terminal()<CR>', opts)
 vim.keymap.set('n', '<leader>dd', function()
     vim.cmd('Format')
     vim.cmd('w')
@@ -44,22 +45,38 @@ vim.keymap.set('n', '<leader>dd', function()
     path = vim.fn.substitute(path, '\\', '/', 'g')
     -- vim.fn.setreg('+', path)
     -- local clipboard_content = vim.fn.getreg('+')
-    local command = "clang++ -o " .. file_name .. " " .. path .. " && ./" ..file_name..
-    vim.cmd('lua open_floating_terminal()')
-    vim.api.nvim_put({command}, 'l', true, true)
+    local command = "clang++ -o " .. file_name .. " " .. path .. " && ./" .. file_name ..
+        vim.cmd('lua open_floating_terminal()')
+    vim.api.nvim_put({ command }, 'l', true, true)
 end, opts)
 
 
 
-vim.keymap.set('n','<leader>mk',':mksession!<CR>', {noremap=true, silent=true, desc="Create Session"})
-vim.keymap.set('n','<leader>mt',':source Session.vim<CR>',{noremap=true, silent=true, desc="Open Session"})
+vim.keymap.set('n', '<leader>mk', ':mksession!<CR>', { noremap = true, silent = true, desc = "Create Session" })
+vim.keymap.set('n', '<leader>mt', ':source Session.vim<CR>', { noremap = true, silent = true, desc = "Open Session" })
 
 vim.api.nvim_set_keymap("n", "tw", ":Twilight<enter>", opts)
 vim.api.nvim_set_keymap("n", "tj", ":bfirst<CR>", opts)
 vim.api.nvim_set_keymap("n", "th", ":bprev<CR>", opts)
 vim.api.nvim_set_keymap("n", "tl", ":bnext<CR>", opts)
 vim.api.nvim_set_keymap("n", "tk", ":blast<CR>", opts)
-vim.api.nvim_set_keymap("n", "td", ":w<CR>:bdelete<CR>", opts)
+-- vim.api.nvim_set_keymap("n", "td", ":w<CR>:bdelete<CR>", opts)
+
+function _G.save_and_delete_buffer()
+    if vim.api.nvim_buf_get_name(0) == "" then
+        vim.cmd("bdelete")
+    else
+        vim.cmd("w")
+        vim.cmd("bdelete")
+    end
+end
+
+-- Set the key mapping
+vim.api.nvim_set_keymap("n", "td", ":lua save_and_delete_buffer()<CR>", opts)
+
+
+
+
 vim.keymap.set("n", "<leader>e", "<cmd>GoIfErr<cr>", opts)
 vim.keymap.set('n', '<c-k>', ':wincmd k<CR>:w<CR>', opts)
 vim.keymap.set('n', '<c-j>', ':wincmd j<CR>:w<CR>', opts)
@@ -90,5 +107,3 @@ vim.keymap.set('n', 'sv', ':split<Return>', opts)
 vim.keymap.set('n', 'te', ':tabedit<CR>', opts)
 vim.keymap.set('n', '<tab>', ':tabnext<Return>', opts)
 vim.keymap.set('n', '<s-tab>', ':tabprev<Return>', opts)
-
-

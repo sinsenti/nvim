@@ -8,7 +8,7 @@ return {
       skip_confirm_for_simple_edits = true,
       prompt_save_on_select_new_entry = false,
       float = {
-        padding = 10,
+        padding = 13,
       },
       preview = {
         always_show = true
