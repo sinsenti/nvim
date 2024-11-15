@@ -16,7 +16,7 @@ return {
     vim.keymap.set("n", "<leader>gP", ":Neogit push<CR>", {silent = true, noremap = true})
     vim.keymap.set("n", "<leader>gb", ":Telescope git_branches<CR>", {silent = true, noremap = true})
     vim.keymap.set("n", "<leader>gB", ":G blame<CR>", {silent = true, noremap = true})
-vim.api.nvim_set_keymap("n", "<leader>gS", ":lua require('neogit').open({ kind = 'stage_all' })<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>gS", "Neogit stage_all<CR>", { noremap = true, silent = true })
   end
 
 }

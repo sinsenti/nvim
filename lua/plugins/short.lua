@@ -1,5 +1,23 @@
 return {
   {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts={
+      keywords = {
+        TODO = { icon = " ", color = "info" },
+        FIXME = { icon = " ", color = "error" },
+        HACK = { icon = " ", color = "warning" },
+        NOTE = { icon = " ", color = "hint" },
+      },
+      keys = {
+        { "<leader>ft", "<cmd>TodoTelescope<CR>", desc = "Find TODOs with Telescope" },
+        { "<leader>tl", "<cmd>TodoQuickFix<CR>", desc = "List TODOs in quickfix" },
+      },
+    }
+
+  },
+
+  {
     "preservim/vim-pencil",
   },
 
