@@ -51,6 +51,6 @@ vim.o.scrolloff = 10;
 
 vim.o.showmode = false
 
-vim.o.conceallevel = 2
+vim.o.conceallevel = 1
 vim.o.cmdheight = 1
 -- vim.cmd.colorscheme "catppuccin"
