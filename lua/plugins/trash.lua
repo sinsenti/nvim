@@ -1,4 +1,61 @@
 return {
+  {
+    'ThePrimeagen/git-worktree.nvim',
+  },
+  -- {
+  --   'ray-x/go.nvim',
+  -- },
+  {
+    'ray-x/guihua.lua',
+  },
+  --   {
+  --   "lukas-reineke/indent-blankline.nvim",
+  --   main = "ibl",
+  --   opts = {},
+  --   },
+    {
+    'folke/zen-mode.nvim',
+    event="BufRead",
+    config=function()
+      require("zen-mode").setup({
+    window = {
+      backdrop = 1,
+      -- width = 120, -- width of the Zen window
+      -- height = 1, -- height of the Zen window
+      options = {
+        signcolumn = "no", -- disable signcolumn
+        number = false, -- disable number column
+        relativenumber = false, -- disable relative numbers
+        -- cursorline = false, -- disable cursorline
+        -- cursorcolumn = false, -- disable cursor column
+        -- foldcolumn = "0", -- disable fold column
+        -- list = false, -- disable whitespace characters
+      },
+    },
+    plugins = {
+      -- disable some global vim options (vim.o...)
+      options = {
+        enabled = true,
+        ruler = true, -- disables the ruler text in the cmd line area
+        showcmd = false, -- disables the command in the last line of the screen
+        -- you may turn on/off statusline in zen mode by setting 'laststatus'
+        -- statusline will be shown only if 'laststatus' == 3
+        laststatus = 0, -- turn off the statusline in zen mode
+      },
+      twilight = { enabled = false }, -- enable to start Twilight when zen mode opens
+      gitsigns = { enabled = false }, -- disables git signs
+      -- tmux = { enabled = true }, -- disables the tmux statusline
+      -- wezterm = {
+      --   enabled = true,
+      --   font = "+20", -- (10% increase per step)
+      -- },
+    },
+  })
+    end,
+    },
+
+
+
 
   {
     'rmagatti/goto-preview',
@@ -41,54 +98,54 @@ return {
       'nvim-treesitter/nvim-treesitter-textobjects',
     }
   },
-  {
-    'theHamsta/nvim-dap-virtual-text',
-  },
-  {
-    'leoluz/nvim-dap-go',
-  },
+  -- {
+  --   'theHamsta/nvim-dap-virtual-text',
+  -- },
+  -- {
+  --   'leoluz/nvim-dap-go',
+  -- },
   -- {
   --   "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {}
   -- },
   {
     'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
   },
-    {
-    "rcarriga/nvim-dap-ui",
-    dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
-    config = function()
-      local dap = require('dap')
-      dap.adapters.python = {
-        type = 'executable',
-        command = 'python', -- Change to 'python3' if needed
-        args = { '-m', 'debugpy.adapter' },
-      }
-      dap.configurations.python = {
-        {
-          type = 'python',
-          request = 'launch',
-          name = "Launch file",
-          program = "${file}", -- This will run the current file
-          pythonPath = function()
-            -- Use the configured Python path or virtual environment
-            return '/usr/bin/python' -- Update to match your setup
-          end,
-        },
-      }
-      require('dapui').setup()
-      require('dap-go').setup()
-      require('nvim-dap-virtual-text').setup()
-      vim.fn.sign_define('DapBreakpoint',
-        { text = '🔴', texthl = 'DapBreakpoint', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' })
-
-      -- Debugger
-      vim.api.nvim_set_keymap("n", "<leader>dt", ":DapUiToggle<CR>", { noremap = true })
-      vim.api.nvim_set_keymap("n", "<leader>db", ":DapToggleBreakpoint<CR>", { noremap = true })
-      vim.api.nvim_set_keymap("n", "<leader>dc", ":DapContinue<CR>", { noremap = true })
-      vim.api.nvim_set_keymap("n", "<leader>dr", ":lua require('dapui').open({reset = true})<CR>", { noremap = true })
-      vim.api.nvim_set_keymap("n", "<leader>ht", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", { noremap = true })
-    end
-  },
+  -- {
+  --   "rcarriga/nvim-dap-ui",
+  --   dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
+  --   config = function()
+  --     local dap = require('dap')
+  --     dap.adapters.python = {
+  --       type = 'executable',
+  --       command = 'python', -- Change to 'python3' if needed
+  --       args = { '-m', 'debugpy.adapter' },
+  --     }
+  --     dap.configurations.python = {
+  --       {
+  --         type = 'python',
+  --         request = 'launch',
+  --         name = "Launch file",
+  --         program = "${file}", -- This will run the current file
+  --         pythonPath = function()
+  --           -- Use the configured Python path or virtual environment
+  --           return '/usr/bin/python' -- Update to match your setup
+  --         end,
+  --       },
+  --     }
+  --     require('dapui').setup()
+  --     require('dap-go').setup()
+  --     require('nvim-dap-virtual-text').setup()
+  --     vim.fn.sign_define('DapBreakpoint',
+  --       { text = '🔴', texthl = 'DapBreakpoint', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' })
+  --
+  --     -- Debugger
+  --     vim.api.nvim_set_keymap("n", "<leader>dt", ":DapUiToggle<CR>", { noremap = true })
+  --     vim.api.nvim_set_keymap("n", "<leader>db", ":DapToggleBreakpoint<CR>", { noremap = true })
+  --     vim.api.nvim_set_keymap("n", "<leader>dc", ":DapContinue<CR>", { noremap = true })
+  --     vim.api.nvim_set_keymap("n", "<leader>dr", ":lua require('dapui').open({reset = true})<CR>", { noremap = true })
+  --     vim.api.nvim_set_keymap("n", "<leader>ht", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", { noremap = true })
+  --   end
+  -- },
 
 
   {
@@ -206,14 +263,6 @@ return {
   --         },
   --       },
   --     },
-  --     {
-  --       -- Make sure to set this up properly if you have lazy=true
-  --       'MeanderingProgrammer/render-markdown.nvim',
-  --       opts = {
-  --         file_types = { "markdown", "Avante" },
-  --       },
-  --       ft = { "markdown", "Avante" },
-  --     },
   --   },
   --   config = function()
   --     require('avante').setup({
@@ -302,13 +351,6 @@ return {
   --
   -- },
   -- {
-  --   "folke/todo-comments.nvim",
-  --   dependencies = "nvim-lua/plenary.nvim",
-  --   config = function()
-  --     require("todo-comments").setup {}
-  --   end,
-  -- },
-  -- {
   --   "nvim-neo-tree/neo-tree.nvim",
   --   branch = "v3.x",
   --   -- event="BufRead",
@@ -335,12 +377,6 @@ return {
   --   opts = {},
   --   name = 'render-markdown',
   --   dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you use the mini.nvim suite
-  -- },
-  -- {
-  --   "iamcco/markdown-preview.nvim",
-  --   -- cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-  --   -- ft = { "markdown" },
-  --   build = function() vim.fn["mkdp#util#install"]() end,
   -- },
 
 

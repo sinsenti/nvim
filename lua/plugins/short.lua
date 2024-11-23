@@ -2,7 +2,7 @@ return {
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
-    opts={
+    opts = {
       keywords = {
         TODO = { icon = " ", color = "info" },
         FIXME = { icon = " ", color = "error" },
@@ -11,7 +11,7 @@ return {
       },
       keys = {
         { "<leader>ft", "<cmd>TodoTelescope<CR>", desc = "Find TODOs with Telescope" },
-        { "<leader>tl", "<cmd>TodoQuickFix<CR>", desc = "List TODOs in quickfix" },
+        { "<leader>tl", "<cmd>TodoQuickFix<CR>",  desc = "List TODOs in quickfix" },
       },
     }
 
@@ -94,7 +94,7 @@ return {
       },
     },
   },
-    {
+  {
     "NeogitOrg/neogit",
     lazy = false,
     event = "BufRead",

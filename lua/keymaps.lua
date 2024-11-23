@@ -1,5 +1,8 @@
 local opts = { noremap = true, silent = true }
 
+vim.keymap.set("n", "<leader>ee", "<cmd>GoIfErr<cr>", {silent = true, noremap = true})
+vim.keymap.set('n', '<leader>o', ':Obsidian', {})
+
 vim.api.nvim_set_keymap('n', '<leader>gg', ':Git ', { desc = 'git ...' })
 vim.api.nvim_create_autocmd("TermOpen", {
     pattern = "*",
@@ -86,14 +89,17 @@ vim.keymap.set('n', '<c-l>', ':wincmd l<CR>', opts)
 
 
 --resize windows
-vim.keymap.set('n', '<Up>', ':resize -2<CR>', opts)
-vim.keymap.set('n', '<Down>', ':resize +2<CR>', opts)
-vim.keymap.set('n', '<Left>', ':vertical resize -2<CR>', opts)
-vim.keymap.set('n', '<Right>', ':vertical resize +2<CR>', opts)
-
+vim.api.nvim_set_keymap("n", "<C-W>,", ":vertical resize -10<CR>", {noremap=true})
+vim.api.nvim_set_keymap("n", "<C-W>.", ":vertical resize +10<CR>", {noremap=true})
+-- vim.keymap.set('n', '<Up>', ':resize -2<CR>', opts)
+-- vim.keymap.set('n', '<Down>', ':resize +2<CR>', opts)
+-- vim.keymap.set('n', '<Left>', ':vertical resize -2<CR>', opts)
+-- vim.keymap.set('n', '<Right>', ':vertical resize +2<CR>', opts)
+--
 vim.keymap.set('n', '<Esc>', ':noh<CR>:NoiceDismiss<CR>', opts)
 
 vim.keymap.set('i', 'jk', '<Esc>', opts)
+vim.keymap.set('i', 'JK', '<Esc>', opts)
 vim.api.nvim_set_keymap('n', 'QQ', ':q<CR>', opts)
 vim.api.nvim_set_keymap('n', 'WW', ':w<CR>', opts)
 vim.api.nvim_set_keymap('n', '<c-s>', ':w<CR>', opts)
