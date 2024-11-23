@@ -1,5 +1,19 @@
 local opts = { noremap = true, silent = true }
 
+vim.keymap.set('n', '<leader>o', ':Obsidian', {})
+
+--neogit
+vim.keymap.set("n", "<leader>gs", ":Neogit<CR>", { silent = true, noremap = true, desc = 'Open neogit' })
+vim.keymap.set("n", "<leader>gc", ":Neogit commit<CR>", { silent = true, noremap = true })
+vim.keymap.set("n", "<leader>gp", ":Neogit pull<CR>", { silent = true, noremap = true })
+vim.keymap.set("n", "<leader>gP", ":Neogit push<CR>", { silent = true, noremap = true })
+vim.keymap.set("n", "<leader>gb", ":Telescope git_branches<CR>", { silent = true, noremap = true })
+vim.keymap.set("n", "<leader>gB", ":G blame<CR>", { silent = true, noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>ga", ":Git add .<CR>", {noremap=true})
+
+
+vim.keymap.set("n", "<leader>ee", "<cmd>GoIfErr<cr>", {silent = true, noremap = true})
+
 vim.api.nvim_set_keymap('n', '<leader>gg', ':Git ', { desc = 'git ...' })
 vim.api.nvim_create_autocmd("TermOpen", {
     pattern = "*",
@@ -86,14 +100,17 @@ vim.keymap.set('n', '<c-l>', ':wincmd l<CR>', opts)
 
 
 --resize windows
-vim.keymap.set('n', '<Up>', ':resize -2<CR>', opts)
-vim.keymap.set('n', '<Down>', ':resize +2<CR>', opts)
-vim.keymap.set('n', '<Left>', ':vertical resize -2<CR>', opts)
-vim.keymap.set('n', '<Right>', ':vertical resize +2<CR>', opts)
-
+vim.api.nvim_set_keymap("n", "<C-W>,", ":vertical resize -10<CR>", {noremap=true})
+vim.api.nvim_set_keymap("n", "<C-W>.", ":vertical resize +10<CR>", {noremap=true})
+-- vim.keymap.set('n', '<Up>', ':resize -2<CR>', opts)
+-- vim.keymap.set('n', '<Down>', ':resize +2<CR>', opts)
+-- vim.keymap.set('n', '<Left>', ':vertical resize -2<CR>', opts)
+-- vim.keymap.set('n', '<Right>', ':vertical resize +2<CR>', opts)
+--
 vim.keymap.set('n', '<Esc>', ':noh<CR>:NoiceDismiss<CR>', opts)
 
 vim.keymap.set('i', 'jk', '<Esc>', opts)
+vim.keymap.set('i', 'JK', '<Esc>', opts)
 vim.api.nvim_set_keymap('n', 'QQ', ':q<CR>', opts)
 vim.api.nvim_set_keymap('n', 'WW', ':w<CR>', opts)
 vim.api.nvim_set_keymap('n', '<c-s>', ':w<CR>', opts)
@@ -110,11 +127,3 @@ vim.keymap.set('n', 'te', ':tabedit<CR>', opts)
 vim.keymap.set('n', '<tab>', ':tabnext<Return>', opts)
 vim.keymap.set('n', '<s-tab>', ':tabprev<Return>', opts)
 
---neogit
-vim.keymap.set("n", "<leader>gs", ":Neogit<CR>", { silent = true, noremap = true, desc = 'Open neogit' })
-vim.keymap.set("n", "<leader>gc", ":Neogit commit<CR>", { silent = true, noremap = true })
-vim.keymap.set("n", "<leader>gp", ":Neogit pull<CR>", { silent = true, noremap = true })
-vim.keymap.set("n", "<leader>gP", ":Neogit push<CR>", { silent = true, noremap = true })
-vim.keymap.set("n", "<leader>gb", ":Telescope git_branches<CR>", { silent = true, noremap = true })
-vim.keymap.set("n", "<leader>gB", ":G blame<CR>", { silent = true, noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>ga", ":Git add .<CR>", {noremap=true})

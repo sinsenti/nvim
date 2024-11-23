@@ -4,7 +4,7 @@ return {
   },
   {
     'neovim/nvim-lspconfig',
-    -- event = "BufRead",
+    event = "BufRead",
     dependencies = {
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
@@ -63,7 +63,7 @@ return {
         }
       })
 
-      local servers = { 'clangd', 'pyright', }
+      local servers = { 'clangd', 'pyright'}
 
       -- Ensure the servers above are installed
       require('mason-lspconfig').setup {
@@ -106,15 +106,6 @@ return {
         },
       }
 
-      vim.api.nvim_create_autocmd('FileType', {
-        pattern = 'sh',
-        callback = function()
-          vim.lsp.start({
-            name = 'bash-language-server',
-            cmd = { 'bash-language-server', 'start' },
-          })
-        end,
-      })
     end,
   },
 }
