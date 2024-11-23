@@ -7,6 +7,8 @@ return {
     event = "BufRead",
     dependencies = {
       'williamboman/mason.nvim',
+    -- { 'folke/neodev.nvim', opts = {} },
+    -- 'WhoIsSethDaniel/mason-tool-installer.nvim',
       'williamboman/mason-lspconfig.nvim',
       'j-hui/fidget.nvim',
     },

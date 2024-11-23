@@ -1,9 +1,13 @@
 local opts = { noremap = true, silent = true }
 
 vim.keymap.set("n", "<leader>ee", "<cmd>GoIfErr<cr>", {silent = true, noremap = true})
-vim.keymap.set('n', '<leader>o', ':Obsidian', {})
+vim.keymap.set('n', '<leader>oo', ':Obsidian', {})
+vim.keymap.set('n', '<leader>of', ':ObsidianQuickSwitch<CR>', {})
+vim.keymap.set('n', '<leader>og', ':ObsidianSearch<CR>', {})
+vim.keymap.set('n', '<leader>ol', ':ObsidianFollowLink<CR>', {})
+vim.keymap.set('n', '<leader>on', ':ObsidianNew<CR>', {})
 
-vim.api.nvim_set_keymap('n', '<leader>gg', ':Git ', { desc = 'git ...' })
+vim.api.nvim_set_keymap('n', '<leader>gg', ':Git ', { desc = 'Git '})
 vim.api.nvim_create_autocmd("TermOpen", {
     pattern = "*",
     command = "startinsert",

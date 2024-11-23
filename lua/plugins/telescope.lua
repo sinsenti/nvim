@@ -76,7 +76,7 @@ return {
         })
       end, { desc = '[/] Fuzzily search in current buffer]' })
 
-      keymap('n', '<leader>ff', builtin.find_files, {})
+      keymap('n', '<leader>ff', builtin.find_files, {desc='Find files'})
 
       keymap('n', '<leader>fb', builtin.buffers, { desc = 'Find Buffers' })
 
@@ -92,7 +92,7 @@ return {
 
       vim.keymap.set("n", "<Leader>fn", "<CMD>lua require('telescope').extensions.notify.notify()<CR>", { noremap = true })
 
-      vim.api.nvim_set_keymap("n", "ft", ":TodoTelescope<CR>", { noremap = true })
+      vim.api.nvim_set_keymap("n", "<leader>ft", ":TodoTelescope<CR>", { noremap = true, desc='Find TODO' })
 
       vim.api.nvim_set_keymap("n", "<Leader><tab>", "<Cmd>lua require('telescope.builtin').commands()<CR>", { noremap = false })
 
