@@ -1,22 +1,22 @@
 return{
   {
-    "rcarriga/nvim-notify",
+    'rcarriga/nvim-notify',
     config = function()
-      require("notify").setup({
-        background_colour = "#000000",
+      require('notify').setup({
+        background_colour = '#000000',
         enabled = false,
       })
     end,
   },
 
   {
-    "folke/noice.nvim",
+    'folke/noice.nvim',
     dependencies = {
-      "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
+      'MunifTanjim/nui.nvim',
+      'rcarriga/nvim-notify',
     },
     config = function()
-      require("noice").setup({
+      require('noice').setup({
         -- presets={
           -- command_palette=true,
           -- lsp_doc_border=true,

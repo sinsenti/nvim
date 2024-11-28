@@ -24,7 +24,7 @@ vim.o.wrap = true
 vim.o.linebreak = true
 
 --idk why that need
-vim.wo.signcolumn = "yes"
+vim.wo.signcolumn = 'yes'
 
 vim.o.numberwidth = 2
 vim.o.shiftwidth = 2
@@ -35,8 +35,8 @@ vim.o.cursorline = true
 vim.o.smartindent = true
 vim.o.autoindent = true
 
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 vim.opt.clipboard = 'unnamedplus'
 
@@ -51,6 +51,6 @@ vim.o.scrolloff = 10;
 
 vim.o.showmode = false
 
-vim.o.conceallevel = 2
+vim.o.conceallevel = 1
 vim.o.cmdheight = 1
--- vim.cmd.colorscheme "catppuccin"
+-- vim.cmd.colorscheme 'catppuccin'

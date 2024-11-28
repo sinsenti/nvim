@@ -1,7 +1,7 @@
 return {
   { -- Autocompletion
     'hrsh7th/nvim-cmp',
-    event = "InsertEnter",
+    event = 'InsertEnter',
     dependencies = {
       'hrsh7th/cmp-nvim-lsp',
       'L3MON4D3/LuaSnip',
@@ -14,7 +14,7 @@ return {
 
       cmp.setup({
         view = {
-          entries = "native"
+          entries = 'native'
         },
         snippet = {
           expand = function(args)
@@ -51,7 +51,7 @@ return {
         sources = {
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
-          { name = "neorg" },
+          { name = 'neorg' },
         },
         })
     end

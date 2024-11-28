@@ -1,5 +1,5 @@
 return {
-  "stevearc/oil.nvim",
+  'stevearc/oil.nvim',
   config = function()
     local actions = require('oil.actions')
 
@@ -17,7 +17,7 @@ return {
         ['h'] = actions.parent,
         ['l'] = actions.select,
         ['-'] = false,
-        ["gt"] = "actions.toggle_trash",
+        ['gt'] = 'actions.toggle_trash',
       },
       actions = {
         delete = { confirm = false },
@@ -25,6 +25,6 @@ return {
       },
     })
 
-    vim.keymap.set("n", "-", require('oil').toggle_float, {})
+    vim.keymap.set('n', '-', require('oil').toggle_float, {})
   end,
 }

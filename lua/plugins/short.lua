@@ -1,24 +1,24 @@
 return {
   {
-    "folke/todo-comments.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    'folke/todo-comments.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
     opts = {
       keywords = {
-        TODO = { icon = " ", color = "info" },
-        FIXME = { icon = " ", color = "error" },
-        HACK = { icon = " ", color = "warning" },
-        NOTE = { icon = " ", color = "hint" },
+        TODO = { icon = ' ', color = 'info' },
+        FIXME = { icon = ' ', color = 'error' },
+        HACK = { icon = ' ', color = 'warning' },
+        NOTE = { icon = ' ', color = 'hint' },
       },
       keys = {
-        { "<leader>ft", "<cmd>TodoTelescope<CR>", desc = "Find TODOs with Telescope" },
-        { "<leader>tl", "<cmd>TodoQuickFix<CR>",  desc = "List TODOs in quickfix" },
+        { '<leader>ft', '<cmd>TodoTelescope<CR>', desc = 'Find TODOs with Telescope' },
+        { '<leader>tl', '<cmd>TodoQuickFix<CR>',  desc = 'List TODOs in quickfix' },
       },
     }
 
   },
 
   {
-    "preservim/vim-pencil",
+    'preservim/vim-pencil',
   },
 
   {
@@ -27,7 +27,7 @@ return {
 
 
   {
-    "tpope/vim-surround",
+    'tpope/vim-surround',
   },
 
   {
@@ -41,32 +41,30 @@ return {
   },
 
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
+    'catppuccin/nvim',
+    name = 'catppuccin',
     config = function()
-      vim.cmd.colorscheme("catppuccin")
+      vim.cmd.colorscheme('catppuccin')
     end,
   },
 
   {
-    "folke/flash.nvim",
-    event = "VeryLazy",
+    'folke/flash.nvim',
+    event = 'VeryLazy',
     vscode = true,
-    --@type Flash.Config
-    opts = {},
-    -- stylua: ignore
+  opts = { },
     keys = {
-      { "<leader>s", mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
-      { "<leader>S", mode = { "n", "o", "x" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
-      { "r",         mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
-      { "R",         mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-      { "<c-s>",     mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
+      { '<leader>s', mode = { 'n', 'x', 'o' }, function() require('flash').jump() end,              desc = 'Flash' },
+      { '<leader>S', mode = { 'n', 'o', 'x' }, function() require('flash').treesitter() end,        desc = 'Flash Treesitter' },
+      { 'r',         mode = 'o',               function() require('flash').remote() end,            desc = 'Remote Flash' },
+      { 'R',         mode = { 'o', 'x' },      function() require('flash').treesitter_search() end, desc = 'Treesitter Search' },
+      { '<c-s>',     mode = { 'c' },           function() require('flash').toggle() end,            desc = 'Toggle Flash Search' },
     },
   },
 
   {
     'numToStr/Comment.nvim',
-    event = { "BufRead", "BufNewFile" },
+    event = { 'BufRead', 'BufNewFile' },
     config = function()
       require('Comment').setup()
     end,
@@ -82,26 +80,26 @@ return {
   },
 
   {
-    "folke/which-key.nvim",
-    event = "VeryLazy",
+    'folke/which-key.nvim',
+    event = 'VeryLazy',
     keys = {
       {
-        "<leader>?",
+        '<leader>?',
         function()
-          require("which-key").show({ global = false })
+          require('which-key').show({ global = false })
         end,
-        desc = "Buffer Local Keymaps (which-key)",
+        desc = 'Buffer Local Keymaps (which-key)',
       },
     },
   },
   {
-    "NeogitOrg/neogit",
+    'NeogitOrg/neogit',
     lazy = false,
-    event = "BufRead",
+    event = 'BufRead',
     dependencies = {
-      "nvim-lua/plenary.nvim",
-      "sindrets/diffview.nvim",
-      "nvim-telescope/telescope.nvim",
+      'nvim-lua/plenary.nvim',
+      'sindrets/diffview.nvim',
+      'nvim-telescope/telescope.nvim',
       config = true,
     },
   },

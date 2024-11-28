@@ -4,9 +4,11 @@ return {
   },
   {
     'neovim/nvim-lspconfig',
-    event = "BufRead",
+    event = 'BufRead',
     dependencies = {
       'williamboman/mason.nvim',
+      -- { 'folke/neodev.nvim', opts = {} },
+      -- 'WhoIsSethDaniel/mason-tool-installer.nvim',
       'williamboman/mason-lspconfig.nvim',
       'j-hui/fidget.nvim',
     },
@@ -51,21 +53,27 @@ return {
           end
         end, { desc = 'Format current buffer with LSP' })
       end
-      vim.keymap.set('n', '<leader>cf', ':Format<CR>', { noremap = true, silent = true, desc = "formatting" })
+      vim.keymap.set('n', '<leader>cf', ':Format<CR>', { noremap = true, silent = true, desc = 'formatting' })
 
 
       require('mason').setup({
-        ensure_installed={
+        ensure_installed = {
           'lua-language-server',
           'stylua',
           'pyright',
           'clangd',
+          'prettier',
+          'markdownlint',
+          'marksman',
         }
       })
 
-      local servers = { 'clangd', 'pyright'}
+      local servers = {
+        'clangd',
+        'pyright',
+        'marksman',
+      }
 
-      -- Ensure the servers above are installed
       require('mason-lspconfig').setup {
         ensure_installed = servers,
       }
@@ -105,7 +113,6 @@ return {
           },
         },
       }
-
     end,
   },
 }
