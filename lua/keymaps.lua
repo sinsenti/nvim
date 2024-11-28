@@ -2,6 +2,31 @@ local opts = { noremap = true, silent = true }
 
 
 
+-- vim.keymap.set('n', 'g[', "ll:lua vim.fn.search('[')<CR>", { noremap = true, silent = true, desc = 'Find square Bracket' })
+vim.keymap.set('n', 'g[', function()
+    vim.api.nvim_command('normal! 2l')
+    vim.fn.search('[')
+end, { noremap = true, silent = true, desc = 'Find square Bracket' })
+vim.keymap.set('n', 'gl', ":lua vim.fn.search('(')<CR>", { noremap = true, silent = true, desc = 'Find  Bracket' })
+-- vim.keymap.set('n', 'gL', function()
+--     vim.cmd("lua vim.fn.search(')')")
+-- end, { noremap = true, silent = true, desc = 'Find  Bracket' })
+
+-- vim.keymap.set('n', 'gl', function()
+--     vim.fn.search('[')
+--     local current_line = vim.fn.getline('.') -- Get the content of the current line
+--     local search_pattern = '%('              -- The pattern you're looking for, escape '('
+--     local start_pos, end_pos = string.find(current_line, search_pattern)
+--
+--     if start_pos then
+--         vim.fn.cursor(vim.fn.line('.'), start_pos)
+--         print("Pattern '(' found at: " .. start_pos .. " to " .. end_pos)
+--     else
+--         print("Pattern '(' not found")
+--     end
+-- end, { noremap = true, silent = true, desc = 'Find square Bracket' })
+
+
 vim.api.nvim_create_user_command('DeleteFile', function()
     vim.cmd('w')
     local file = vim.fn.expand('%:p')

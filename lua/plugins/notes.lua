@@ -14,6 +14,7 @@ return {
       require('obsidian').setup({
         -- disable_frontmatter = false,
         --to open obsidian by :ObsdianOpen
+        -- use_advanced_uri=true,
         open_app_foreground = true,
         workspaces = {
           {
@@ -60,7 +61,7 @@ return {
       vim.keymap.set('n', '<leader>ov', ':ObsidianOpen<CR>', {})
       vim.keymap.set('n', '<leader>of', ':ObsidianQuickSwitch<CR>', {})
       vim.keymap.set('n', '<leader>og', ':ObsidianSearch<CR>', { desc = 'Find words' })
-      vim.keymap.set('n', '<leader>ol', ':ObsidianFollowLink<CR>', { noremap = true, silent = true })
+      vim.keymap.set('n', '<leader>ol', ':ObsidianLinks<CR>', { noremap = true, silent = true })
       -- vim.keymap.set('n', '<leader>on', ':ObsidianNew', {})
       vim.keymap.set('n', '<leader>or', ':ObsidianRename', {})
       vim.keymap.set('n', '<leader>oi', ':ObsidianPasteImg<CR>', {})
