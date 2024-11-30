@@ -1,9 +1,17 @@
 local opts = { noremap = true, silent = true }
 
 
+vim.keymap.set('n', '<leader>md', function()
+    vim.cmd('ZenMode')
+    vim.cmd('PencilSoft')
+    vim.cmd('set spell!')
+end, { desc = 'Toggle Zenmode and pensil'
+})
 
--- vim.keymap.set('n', 'g[', "ll:lua vim.fn.search('[')<CR>", { noremap = true, silent = true, desc = 'Find square Bracket' })
-vim.keymap.set('n', 'g[', function()
+vim.keymap.set('n', '<leader>ms', ']s1z=', { desc = 'Fix spelling fistake' })
+
+
+vim.keymap.set('n', '<leader>[', function()
     vim.api.nvim_command('normal! 2l')
     vim.fn.search('[')
 end, { noremap = true, silent = true, desc = 'Find square Bracket' })
@@ -77,7 +85,7 @@ function _G.open_split_terminal()
     vim.api.nvim_put({ command }, 'l', true, true)
 end
 
-vim.keymap.set('n', '<leader>wt', ':lua _G.open_split_terminal()<CR>', opts)
+vim.keymap.set('n', '<leader>WT', ':lua _G.open_split_terminal()<CR>', opts)
 
 function _G.open_floating_terminal()
     local buf = vim.api.nvim_create_buf(false, true)
@@ -93,7 +101,7 @@ function _G.open_floating_terminal()
     vim.cmd('terminal')
 end
 
-vim.keymap.set('n', 'wt', ':lua _G.open_floating_terminal()<CR>', opts)
+vim.keymap.set('n', '<leader>wt', ':lua _G.open_floating_terminal()<CR>', opts)
 vim.keymap.set('n', '<leader>dd', function()
     vim.cmd('Format')
     vim.cmd('w')
