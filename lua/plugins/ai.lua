@@ -1,0 +1,43 @@
+return {
+    -- {
+    --     "David-Kunz/gen.nvim",
+    --     opts = {
+    --         model = "mistral",
+    --         quit_map = "q",
+    --         retry_map = "<c-r>",
+    --         accept_map = "<c-cr>",
+    --         host = "localhost",
+    --         port = "11434",
+    --         display_mode = "float",
+    --         show_prompt = true,
+    --         show_model = true,
+    --         no_auto_close = false, -- Never closes the window automatically.
+    --         file = false,      -- Write the payload to a temporary file to keep the command short.
+    --         hidden = false,    -- Hide the generation window (if true, will implicitly set `prompt.replace = true`), requires Neovim >= 0.10
+    --         init = function(options) pcall(io.popen, "ollama serve > /dev/null 2>&1 &") end,
+    --         command = function(options)
+    --             local body = { model = options.model, stream = true }
+    --             return "curl --silent --no-buffer -X POST http://" ..
+    --             options.host .. ":" .. options.port .. "/api/chat -d $body"
+    --         end,
+    --         -- The command for the Ollama service. You can use placeholders $prompt, $model and $body (shellescaped).
+    --         -- This can also be a command string.
+    --         -- The executed command must return a JSON object with { response, context }
+    --         -- (context property is optional).
+    --         -- list_models = '<omitted lua function>', -- Retrieves a list of model names
+    --         debug = false -- Prints errors and the command which is run.
+    --     },
+    -- },
+    -- {
+    --   "Exafunction/codeium.nvim",
+    --   dependencies = {
+    --     -- "nvim-lua/plenary.nvim",
+    --     "hrsh7th/nvim-cmp",
+    --   },
+    --   config = function()
+    --     require("codeium").setup({
+    --     })
+    --   end
+    -- },
+    -- Custom Parameters (with defaults)
+}

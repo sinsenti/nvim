@@ -62,7 +62,7 @@ return {
 
       pcall(require('telescope').load_extension, 'fzf')
       local builtin = require('telescope.builtin')
-      local keymap = vim.keymap.set
+      -- local keymap = vim.keymap.set
 
       vim.keymap.set('n', '<leader>/', function()
         -- You can pass additional configuration to telescope to change theme, layout, etc.
@@ -76,13 +76,15 @@ return {
         })
       end, { desc = '[/] Fuzzily search in current buffer]' })
 
-      keymap('n', '<leader>ff', builtin.find_files, {desc='Find files'})
+      vim.keymap.set('n', '<leader>fF', builtin.find_files, {desc='Find files'})
+      vim.keymap.set('n', '<leader>ff', ':lua require("telescope.builtin").find_files({ cwd = vim.fn.expand("%:p:h") })<CR>', { noremap = true, silent = true })
 
-      keymap('n', '<leader>fb', builtin.buffers, { desc = 'Find Buffers' })
+      vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Find Buffers' })
 
-      keymap('n', '<leader><leader>', builtin.oldfiles, { desc = 'Find Old files ' })
+      vim.keymap.set('n', '<leader><leader>', builtin.oldfiles, { desc = 'Find Old files ' })
 
-      vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
+      vim.keymap.set('n', '<leader>fg', ':lua require("telescope.builtin").live_grep({ cwd = vim.fn.expand("%:p:h") })<CR>', { noremap = true, silent = true })
+      vim.keymap.set('n', '<leader>fG', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 
       vim.keymap.set('n', '<leader>fS', require('telescope.builtin').git_status, { desc = 'Git status' })
 

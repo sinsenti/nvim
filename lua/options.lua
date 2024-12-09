@@ -6,6 +6,14 @@ vim.o.updatetime=250
 -- vim.cmd.colorscheme 'catppuccin'
 vim.o.completeopt='menuone,noselect'
 
+-- vim.opt.clipboard = 'unnamedplus'
+vim.opt.clipboard = ""
+vim.keymap.set({ "n", "x" }, "y", '"+y')
+vim.keymap.set("n", "p", '""p')
+vim.keymap.set('n', '<s-y>', '"+y$',{} )
+
+vim.o.ignorecase = true
+vim.o.smartcase = true
 
 vim.opt.statusline = '%y'
 vim.opt.fillchars:append { eob = ' ' }
@@ -38,10 +46,6 @@ vim.o.autoindent = true
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-vim.opt.clipboard = 'unnamedplus'
-
-vim.o.ignorecase = true
-vim.o.smartcase = true
 
 vim.o.backup = false
 vim.o.writebackup = true

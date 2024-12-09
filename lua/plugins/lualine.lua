@@ -10,53 +10,37 @@ return {
 
 
       -- with buffer in upper part
-    sections = {
-      lualine_x = {
-        {
-          require('noice').api.statusline.mode.get,
-          cond = require('noice').api.statusline.mode.has,
-          color = { fg = '#ff9e64' },
+      sections = {
+        lualine_a = { 'mode' },
+        -- lualine_b = { 'filename', 'branch' },
+        lualine_b = { 'filename', 'branch' },
+        lualine_c = {
+          -- 'diff',
+          -- 'diagnostics',
+          {
+            'buffers',
+          },
         },
-        {
-          require('noice').api.status.command.get,
-          cond = require('noice').api.status.command.has,
-          color = { fg = '#ff9e64' },
+        lualine_x = {
+          {
+            require('noice').api.statusline.mode.get,
+            cond = require('noice').api.statusline.mode.has,
+            -- color = { fg = '#ff9e64' },
+          },
+          {
+            require('noice').api.status.command.get,
+            cond = require('noice').api.status.command.has,
+            -- color = { fg = '#ff9e64' },
+          },
         },
+        -- lualine_y = { 'progress' },
+        -- lualine_z = { 'location' },
+        -- lualine_x = { 'encoding', 'fileformat', 'filetype' },
+        -- lualine_x = {},
+        lualine_y = {},
+        lualine_z = {},
+        -- },
       },
-      lualine_a = {
-        {
-          'buffers',
-        }
-      }
-    }
     })
-
-
-
-      -- sections = {
-      --   lualine_x = {
-      --     {
-      --       require('noice').api.statusline.mode.get,
-      --       cond = require('noice').api.statusline.mode.has,
-      --       color = { fg = '#ff9e64' },
-      --     },
-      --     {
-      --       require('noice').api.status.command.get,
-      --       cond = require('noice').api.status.command.has,
-      --       color = { fg = '#ff9e64' },
-      --     },
-      --   },
-      -- },
-      -- tabline = {
-      --   lualine_a = { 'tabs' },
-      --   lualine_b = {
-      --     {
-      --       'buffers',
-      --       mode = 0,
-      --       show_filename_only = true,
-      --       icons_enabled=false
-      --     },
-      --   },
-      -- }
   end
 }
