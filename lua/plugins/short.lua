@@ -10,7 +10,7 @@ return {
         NOTE = { icon = ' ', color = 'hint' },
       },
       keys = {
-        { '<leader>ft', '<cmd>TodoTelescope<CR>', desc = 'Find TODOs with Telescope' },
+        -- { '<leader>ft', '<cmd>TodoTelescope<CR>', desc = 'Find TODOs with Telescope' },
         { '<leader>tl', '<cmd>TodoQuickFix<CR>',  desc = 'List TODOs in quickfix' },
       },
     }

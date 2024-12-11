@@ -4,7 +4,7 @@ local function a(desctiption)
   return vim.tbl_deep_extend('force', opts, { desc = desctiption })
 end
 
-vim.keymap.set('n', '<leader>mr', 'zz', opts)
+vim.keymap.set('n', '<leader>mr', 'zz', a('Place line in the centrer'))
 
 vim.api.nvim_create_autocmd('TermOpen', { pattern = '*', command = 'startinsert', })
 vim.keymap.set('n', '<leader>wt', ':lua _G.open_floating_terminal()<cr>', opts)
@@ -17,7 +17,7 @@ vim.keymap.set('n', 'td', ':lua save_and_delete_buffer()<cr>', opts)
 
 
 vim.keymap.set('i', '<C-h>', '<C-w>', opts)
-vim.keymap.set('i', '<c-a>', "<Esc>mpggyG'p::delmarks p<cr>", opts)
+vim.keymap.set('i', '<c-a>', "<Esc>mpggyG'p:delmarks p<cr>", opts)
 vim.keymap.set('n', '<leader>mz', 'bb]s1z=', a("Fix spelling mistake"))
 vim.keymap.set('n', '<leader>ms', ':set spell!<cr>', a('Toggle spelling'))
 vim.keymap.set('n', '<leader>mc', ':mksession!<cr>', a('[C]reate Session'))

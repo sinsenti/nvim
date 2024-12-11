@@ -3,12 +3,14 @@ local opts = { noremap = true, silent = true }
 vim.keymap.set('n', '<leader>dd', function()
     vim.cmd('Format')
     vim.cmd('w')
-    local path = vim.fn.expand('%:p')
-    local file_name = vim.fn.expand('%:t:r')
+    local path = vim.fn.expand('%:p:r')
+    -- local path = vim.fn.expand('%:p')
+    -- local file_name = vim.fn.expand('%:t:r')
     path = vim.fn.substitute(path, '\\', '/', 'g')
     -- vim.fn.setreg('+', path)
     -- local clipboard_content = vim.fn.getreg('+')
-    local command = 'clang++ -o ' .. file_name .. ' ' .. path .. ' && ./' .. file_name ..
+    -- local command = 'clang++ -o ' .. file_name .. ' ' .. path .. ' && ./' .. file_name ..
+    local command = 'clang++ -o ' .. path .. ' ' .. path .. '.cpp && ' .. path ..
         vim.cmd('lua open_floating_terminal()')
     vim.api.nvim_put({ command }, 'l', true, true)
 end, opts)

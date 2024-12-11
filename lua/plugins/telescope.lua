@@ -69,15 +69,17 @@ return {
         require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
           winblend = 10,
           preview = true,
-          layout_config={
-            width=0.5,
-            height=0.5,
+          layout_config = {
+            width = 0.5,
+            height = 0.5,
           }
         })
       end, { desc = '[/] Fuzzily search in current buffer]' })
 
-      vim.keymap.set('n', '<leader>fF', builtin.find_files, {desc='Find files'})
-      vim.keymap.set('n', '<leader>ff', ':lua require("telescope.builtin").find_files({ cwd = vim.fn.expand("%:p:h") })<CR>', { noremap = true, silent = true })
+      vim.keymap.set('n', '<leader>fF', builtin.find_files, { desc = 'Find files' })
+      vim.keymap.set('n', '<leader>ff',
+        ':lua require("telescope.builtin").find_files({ cwd = vim.fn.expand("%:p:h") })<CR>',
+        { noremap = true, silent = true })
 
       vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Find Buffers' })
 
@@ -94,12 +96,13 @@ return {
 
       vim.keymap.set("n", "<Leader>fn", "<CMD>lua require('telescope').extensions.notify.notify()<CR>", { noremap = true })
 
-      vim.api.nvim_set_keymap("n", "<leader>ft", ":TodoTelescope<CR>", { noremap = true, desc='Find TODO' })
+      vim.api.nvim_set_keymap("n", "<leader>ft", ":TodoTelescope<CR>", { noremap = true, desc = 'Find TODO' })
 
-      vim.api.nvim_set_keymap("n", "<Leader><tab>", "<Cmd>lua require('telescope.builtin').commands()<CR>", { noremap = false })
+
+      vim.api.nvim_set_keymap("n", "<Leader><tab>", "<Cmd>lua require('telescope.builtin').commands()<CR>",
+        { noremap = false })
 
       require('telescope').load_extension('ui-select')
-
     end,
   },
 }
