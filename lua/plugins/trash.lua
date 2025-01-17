@@ -1,22 +1,4 @@
 return {
- --  {
- -- 'kawre/leetcode.nvim',
- --  build = ':TSUpdate html',
- --  dependencies = {
- --    'nvim-telescope/telescope.nvim',
- --    'nvim-lua/plenary.nvim', -- required by telescope
- --    'MunifTanjim/nui.nvim',
- --
- --    -- optional
- --    'nvim-treesitter/nvim-treesitter',
- --    'nvim-tree/nvim-web-devicons',
- --  },
- --  opts = {
- --    -- configuration goes here
- --    ---@type lc.lang
- --    lang = 'python3',
- --  },
- --  },
   {
     'ThePrimeagen/git-worktree.nvim',
   },
@@ -60,7 +42,7 @@ return {
         -- statusline will be shown only if 'laststatus' == 3
         laststatus = 0, -- turn off the statusline in zen mode
       },
-      twilight = { enabled = false }, -- enable to start Twilight when zen mode opens
+      twilight = { enabled = true }, -- enable to start Twilight when zen mode opens
       gitsigns = { enabled = false }, -- disables git signs
     },
   })
@@ -228,15 +210,6 @@ return {
   -- end,
   --
   -- {
-  --   'epwalsh/obsidian.nvim',
-  --   version = '*',  -- recommended, use latest release instead of latest commit
-  --   lazy = true,
-  --   ft = 'markdown',
-  --   dependencies = {
-  --     'nvim-lua/plenary.nvim',
-  --   },
-  -- },
-  -- {
   --   'mistricky/codesnap.nvim',
   --   build = 'make',
   -- },
@@ -383,13 +356,6 @@ return {
   --     })
   --   end,
   --   vim.keymap.set('n', '<leader>-', ':Neotree toggle right<CR>', { noremap = true, silent = true })
-  -- },
-  --   -- {
-  --   'MeanderingProgrammer/markdown.nvim',
-  --   main = 'render-markdown',
-  --   opts = {},
-  --   name = 'render-markdown',
-  --   dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you use the mini.nvim suite
   -- },
 
 

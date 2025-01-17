@@ -15,7 +15,6 @@ return {
           file_ignore_patterns = {
             '%.git',
             '%.mypy_cache',
-            -- '%.venv',
             'venv',
             '%.visualprojects'
           },
@@ -32,6 +31,8 @@ return {
             i = {
               ['<C-j>'] = actions.move_selection_next,
               ['<C-k>'] = actions.move_selection_previous,
+              ['<C-d>'] = actions.delete_buffer,
+              ['<C-q>'] = actions.close,
             },
             n = {
               ['q'] = actions.close,
@@ -77,24 +78,29 @@ return {
       end, { desc = '[/] Fuzzily search in current buffer]' })
 
       vim.keymap.set('n', '<leader>fF', builtin.find_files, { desc = 'Find files' })
+
       vim.keymap.set('n', '<leader>ff',
         ':lua require("telescope.builtin").find_files({ cwd = vim.fn.expand("%:p:h") })<CR>',
         { noremap = true, silent = true })
-
       vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Find Buffers' })
 
       vim.keymap.set('n', '<leader><leader>', builtin.oldfiles, { desc = 'Find Old files ' })
 
-      vim.keymap.set('n', '<leader>fg', ':lua require("telescope.builtin").live_grep({ cwd = vim.fn.expand("%:p:h") })<CR>', { noremap = true, silent = true })
+      vim.keymap.set('n', '<leader>fg',
+        ':lua require("telescope.builtin").live_grep({ cwd = vim.fn.expand("%:p:h") })<CR>',
+        { noremap = true, silent = true })
       vim.keymap.set('n', '<leader>fG', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 
       vim.keymap.set('n', '<leader>fS', require('telescope.builtin').git_status, { desc = 'Git status' })
 
-      vim.keymap.set("n", "<Leader>fr", "<CMD>lua require('telescope').extensions.git_worktree.git_worktrees()<CR>", { noremap = true })
+      vim.keymap.set("n", "<Leader>fr", "<CMD>lua require('telescope').extensions.git_worktree.git_worktrees()<CR>",
+        { noremap = true })
 
-      vim.keymap.set("n", "<Leader>fR", "<CMD>lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>", { noremap = true })
+      vim.keymap.set("n", "<Leader>fR", "<CMD>lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>",
+        { noremap = true })
 
-      vim.keymap.set("n", "<Leader>fn", "<CMD>lua require('telescope').extensions.notify.notify()<CR>", { noremap = true })
+      vim.keymap.set("n", "<Leader>fn", "<CMD>lua require('telescope').extensions.notify.notify()<CR>",
+        { noremap = true })
 
       vim.api.nvim_set_keymap("n", "<leader>ft", ":TodoTelescope<CR>", { noremap = true, desc = 'Find TODO' })
 

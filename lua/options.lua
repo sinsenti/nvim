@@ -7,6 +7,8 @@ vim.o.updatetime=250
 vim.o.completeopt='menuone,noselect'
 
 vim.opt.clipboard = 'unnamedplus'
+
+
 -- vim.opt.clipboard = ""
 -- vim.keymap.set({ "n", "x" }, "y", '"+y')
 -- vim.keymap.set("n", "p", '""p')
@@ -43,8 +45,6 @@ vim.o.cursorline = true
 vim.o.smartindent = true
 vim.o.autoindent = true
 
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
 
 
 vim.o.backup = false

@@ -4,11 +4,20 @@ return {
     local actions = require('oil.actions')
 
     require('oil').setup({
-      -- delete_to_trash = true,
       skip_confirm_for_simple_edits = true,
       prompt_save_on_select_new_entry = false,
+      view_options = {
+        show_hidden = true,
+        is_hidden_file = function(name, bufnr)
+          local m = name:match("^%.")
+          return m ~= nil
+        end,
+        is_always_hidden = function(name, bufnr)
+          return false
+        end,
+      },
       float = {
-        padding = 13,
+        padding = 7,
       },
       preview = {
         always_show = true

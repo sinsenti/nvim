@@ -1,5 +1,20 @@
 local opts = { noremap = true, silent = true }
 
+-- vim.keymap.set('n', '<leader>cp', function()
+--     local filepath = vim.fn.expand('%:p')
+--     filepath = filepath:gsub('\\', '/')
+--     vim.fn.setreg('+', filepath)
+--     print("Copied file path to clipboard: " .. filepath)
+-- end, { desc = "Copy file path to clipboard with forward slashes" })
+
+vim.keymap.set('n', '<leader>cp', function()
+    local filepath = vim.fn.expand('%:p')
+    filepath = filepath:gsub('\\', '/')  -- Replace backslashes with forward slashes
+    filepath = filepath:gsub(' ', '\\ ') -- Escape spaces by adding a backslash before each
+    vim.fn.setreg('+', filepath)
+    print("Copied file path to clipboard: " .. filepath)
+end, { desc = "Copy file path to clipboard with forward slashes and escaped spaces" })
+
 vim.keymap.set('n', '<leader>dd', function()
     vim.cmd('Format')
     vim.cmd('w')

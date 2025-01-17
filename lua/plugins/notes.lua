@@ -19,7 +19,7 @@ return {
         workspaces = {
           {
             name = 'obsidian',
-            path = '~/obsidian',
+            path = '~/git/obsidian',
           },
         },
         daily_notes = {
@@ -65,7 +65,7 @@ return {
       -- vim.keymap.set('n', '<leader>on', ':ObsidianNew', {})
       vim.keymap.set('n', '<leader>or', ':ObsidianRename', {})
       vim.keymap.set('n', '<leader>oi', ':ObsidianPasteImg<CR>', {})
-      vim.keymap.set('n', '<leader>ob', ':ObsidianBacklinks<CR>', {noremap=true, silent=true})
+      vim.keymap.set('n', '<leader>ob', ':ObsidianBacklinks<CR>', { noremap = true, silent = true })
       vim.keymap.set('n', '<leader>ot', ':ObsidianNewFromTemplate', {})
 
       -- vim.keymap.set('n', '<leader>oc',require('obsidian').create_new_note({ name = id }), {})
@@ -97,21 +97,6 @@ return {
   },
   -- {
   --   'nvim-neorg/neorg',
-  -- },
-  -- {
-  --   'MeanderingProgrammer/markdown.nvim',
-  --   main = 'render-markdown',
-  --   event = 'BufRead',
-  --   opts = {},
-  --   name = 'render-markdown',                                                            -- Only needed if you have another plugin named markdown.nvim
-  --   dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you use the mini.nvim suite
-  -- },
-  -- {
-  --   'iamcco/markdown-preview.nvim',
-  --   event = 'BufRead',
-  --   cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
-  --   -- ft = { 'markdown' },
-  --   build = function() vim.fn['mkdp#util#install']() end,
   -- },
   -- {
   --   'mistricky/codesnap.nvim',
